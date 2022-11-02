@@ -1,7 +1,5 @@
 package cn.ljtnono.leetcode.string;
 
-import java.util.Locale;
-
 /**
  * LeetCode #125
  *

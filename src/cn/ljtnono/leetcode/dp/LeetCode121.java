@@ -1,8 +1,5 @@
 package cn.ljtnono.leetcode.dp;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * LeetCode #121
  *

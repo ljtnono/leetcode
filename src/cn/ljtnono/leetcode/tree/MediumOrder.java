@@ -2,7 +2,6 @@ package cn.ljtnono.leetcode.tree;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * @author Ling, Jiatong
