@@ -33,7 +33,22 @@ public class LeetCode1052 {
      */
     public static int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
         // 思路：求customers数组中长度为minutes的子数组的区间下标
-        return 0;
+        int sum = 0, len = customers.length;
+        for (int i = 0; i < len; i++) {
+            if (grumpy[i] == 0){
+                sum += customers[i];
+                customers[i] = 0;
+            }
+        }
+        int num = customers[0];
+        int maxval = customers[0];
+        for (int i = 1; i < len; i++){
+            if (i < minutes) num = num + customers[i];
+            else num = num + customers[i] - customers[i - minutes];
+            maxval = Math.max(maxval, num);
+        }
+
+        return (sum + maxval);
     }
 
     public static int getSum(int[] arr, int startIndex, int endIndex) {
