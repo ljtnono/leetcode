@@ -1,5 +1,8 @@
 package cn.ljtnono.leetcode.array;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * LeetCode1456
  *
@@ -61,8 +64,24 @@ public class LeetCode1456 {
      * @return
      */
     public int maxVowels(String s, int k) {
-
-        return 0;
+        // 思路：窗口大小一定，计算窗口内元音字母最多的子串
+        char[] arr = s.toCharArray();
+        List<Character> targetList = Arrays.asList('a', 'e', 'i', 'o', 'u');
+        int maxSum = 0;
+        int currentMaxSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i < k) {
+                currentMaxSum += targetList.contains(arr[i]) ? 1 : 0;
+            } else {
+                if (targetList.contains(arr[i])) {
+                    currentMaxSum++;
+                }
+                if (targetList.contains(arr[i - k])) {
+                    currentMaxSum--;
+                }
+            }
+            maxSum = Math.max(currentMaxSum, maxSum);
+        }
+        return maxSum;
     }
-
 }
