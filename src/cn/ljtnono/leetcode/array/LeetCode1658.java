@@ -49,21 +49,19 @@ public class LeetCode1658 {
         int left = 0;
         int right = 0;
         int result = -1;
-        while (left < nums.length) {
+        while (right < nums.length) {
             // 当右边没到边界时，一直加
-            if (right < nums.length) {
-                currentSum += nums[right];
-                right++;
+            currentSum += nums[right];
+            right++;
+            while (currentSum > numsSum - x && left < nums.length) {
+                currentSum -= nums[left++];
             }
             if (currentSum == numsSum - x) {
                 result = Math.max(result, right - left);
             }
-            while (currentSum > numsSum - x && left < nums.length) {
-                currentSum -= nums[left++];
-            }
+
         }
         return result == -1 ? -1 : nums.length - result;
     }
-
 
 }
